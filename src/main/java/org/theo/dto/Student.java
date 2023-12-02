@@ -1,10 +1,14 @@
 package org.theo.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Student and their information
  * @author Theodore Georgiou
  */
-
+@Getter
+@Setter
 public class Student {
     private String id;
     private String fname;
@@ -28,8 +32,24 @@ public class Student {
      * Prints the information of a student
      * @return the information of a student
      */
-
+    @Override
     public String toString() {
-        return null;
+        String courseStr = "[";
+
+        for (Course course : courses) {
+            if (course != null) {
+                courseStr += course + ", ";
+            }
+        }
+        courseStr += "]";
+
+        if (department == null) {
+            return "Student{" + "id='" + id + "'" + ", fname='" + fname + "'" + ", lname='" + lname + "'" +
+                    ", department='" + null + "'" +
+                    ", courses=" + courseStr + ", courseNum='" + courseNum + "'" + '}';
+        }
+        return "Student{" + "id='" + id + "'" + ", fname='" + fname + "'" + ", lname='" + lname + "'" +
+                ", department='" + department.getDepartmentName() + "'" +
+                ", courses=" + courseStr + ", courseNum='" + courseNum + "'" + '}';
     }
 }

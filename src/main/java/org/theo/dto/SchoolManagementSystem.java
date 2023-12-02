@@ -29,7 +29,25 @@ public class SchoolManagementSystem {
      * @param departmentName the name of the department
      */
     public void addDepartment(String departmentName) {
+        int numOfFull = 0;
 
+        for (Department department : departments) {
+            if (department != null) {
+                numOfFull++;
+            }
+        }
+
+        if (numOfFull == MAX_DEPARTMENT_NUM) {
+            System.out.println("Max amount of departments reached, adding a department has failed.");
+        } else {
+            for (int i = 0; i < departments.length; i++) {
+                if (departments[i] == null) {
+                    departments[i] = new Department(departmentName);
+                    System.out.println(departments[i] + " added successfully.");
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -38,6 +56,12 @@ public class SchoolManagementSystem {
      * @return the found department
      */
     public Department findDepartment(String departmentId) {
+        for (Department department : departments) {
+            if (department != null && department.getId().equals(departmentId)) {
+                return department;
+            }
+        }
+
         return null;
     }
 
@@ -45,7 +69,11 @@ public class SchoolManagementSystem {
      * Prints all departments in a school that are not null
      */
     public void printDepartments() {
-
+        for (Department department : departments) {
+            if (department != null) {
+                System.out.println(department);
+            }
+        }
     }
 
     /**
@@ -55,7 +83,25 @@ public class SchoolManagementSystem {
      * @param departmentId name of the department
      */
     public void addCourse(String courseName, double credit, String departmentId) {
+        int numOfFull = 0;
 
+        for (Course course : courses) {
+            if (course != null) {
+                numOfFull++;
+            }
+        }
+
+        if (numOfFull == MAX_COURSE_NUM) {
+            System.out.println("Max amount of courses reached, adding a course has failed.");
+        } else {
+            for (int i = 0; i < courses.length; i++) {
+                if (courses[i] == null) {
+                    courses[i] = new Course(courseName, credit, findDepartment(departmentId));
+                    System.out.println(courses[i] + " added successfully.");
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -80,7 +126,11 @@ public class SchoolManagementSystem {
      * Prints all courses in a school that are not null
      */
     public void printCourses() {
-
+        for (Course course : courses) {
+            if (course != null) {
+                System.out.println(course);
+            }
+        }
     }
 
     /**
@@ -90,7 +140,25 @@ public class SchoolManagementSystem {
      * @param departmentId id of the department
      */
     public void addTeacher(String fname, String lname, String departmentId) {
+        int numOfFull = 0;
 
+        for (Teacher teacher : teachers) {
+            if (teacher != null) {
+                numOfFull++;
+            }
+        }
+
+        if (numOfFull == MAX_TEACHER_NUM) {
+            System.out.println("Max amount of teachers reached, adding a teacher has failed.");
+        } else {
+            for (int i = 0; i < teachers.length; i++) {
+                if (teachers[i] == null) {
+                    teachers[i] = new Teacher(fname, lname, findDepartment(departmentId));
+                    System.out.println(teachers[i] + " added successfully.");
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -115,7 +183,11 @@ public class SchoolManagementSystem {
      * Prints all teachers in a school that are not null
      */
     public void printTeachers() {
-
+        for (Teacher teacher : teachers) {
+            if (teacher != null) {
+                System.out.println(teacher);
+            }
+        }
     }
 
     /**
@@ -125,7 +197,25 @@ public class SchoolManagementSystem {
      * @param departmentId id of the department
      */
     public void addStudent(String fname, String lname, String departmentId) {
+        int numOfFull = 0;
 
+        for (Student student : students) {
+            if (student != null) {
+                numOfFull++;
+            }
+        }
+
+        if (numOfFull == MAX_STUDENT_NUM) {
+            System.out.println("Max amount of students reached, adding a student has failed.");
+        } else {
+            for (int i = 0; i < students.length; i++) {
+                if (students[i] == null) {
+                    students[i] = new Student(fname, lname, findDepartment(departmentId));
+                    System.out.println(students[i] + " added successfully.");
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -141,6 +231,10 @@ public class SchoolManagementSystem {
      * Prints all students in a school that are not null
      */
     public void printStudents() {
-
+        for (Student student : students) {
+            if (student != null) {
+                System.out.println(student);
+            }
+        }
     }
 }

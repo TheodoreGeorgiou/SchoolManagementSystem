@@ -1,10 +1,14 @@
 package org.theo.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Department and their information
  * @author Theodore Georgiou
  */
-
+@Getter
+@Setter
 public class Department {
     private String id;
     private String departmentName;
@@ -20,8 +24,8 @@ public class Department {
      * Prints the information of a department
      * @return the information of a department
      */
-
+    @Override
     public String toString() {
-        return null;
+        return "Department{" + "id='" + id + "'" + ", departmentName='" + departmentName + "'" + '}';
     }
 }
