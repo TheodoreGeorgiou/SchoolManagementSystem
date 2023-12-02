@@ -4,7 +4,6 @@ package org.theo.dto;
  * School Management System which has multiple functionalities
  * @author Theodore Georgiou
  */
-
 public class SchoolManagementSystem {
     private String name;
     private Department[] departments;
@@ -29,7 +28,6 @@ public class SchoolManagementSystem {
      * Adds a new department
      * @param departmentName the name of the department
      */
-
     public void addDepartment(String departmentName) {
 
     }
@@ -39,7 +37,6 @@ public class SchoolManagementSystem {
      * @param departmentId the id of the department that needs to be found
      * @return the found department
      */
-
     public Department findDepartment(String departmentId) {
         return null;
     }
@@ -47,7 +44,6 @@ public class SchoolManagementSystem {
     /**
      * Prints all departments in a school that are not null
      */
-
     public void printDepartments() {
 
     }
@@ -58,7 +54,6 @@ public class SchoolManagementSystem {
      * @param credit credit of the course
      * @param departmentId name of the department
      */
-
     public void addCourse(String courseName, double credit, String departmentId) {
 
     }
@@ -68,7 +63,6 @@ public class SchoolManagementSystem {
      * @param courseId the id of the course that needs to be found
      * @return the found course
      */
-
     public Course findCourse(String courseId) {
         return null;
     }
@@ -78,8 +72,14 @@ public class SchoolManagementSystem {
      * @param studentId id of the student
      * @param courseId id of the course
      */
-
     public void registerCourse(String studentId, String courseId) {
+
+    }
+
+    /**
+     * Prints all courses in a school that are not null
+     */
+    public void printCourses() {
 
     }
 
@@ -89,7 +89,6 @@ public class SchoolManagementSystem {
      * @param lname last name of the teacher
      * @param departmentId id of the department
      */
-
     public void addTeacher(String fname, String lname, String departmentId) {
 
     }
@@ -99,7 +98,6 @@ public class SchoolManagementSystem {
      * @param teacherId the id of the teacher that needs to be found
      * @return the found teacher
      */
-
     public Teacher findTeacher(String teacherId) {
         return null;
     }
@@ -109,7 +107,6 @@ public class SchoolManagementSystem {
      * @param teacherId id of the teacher
      * @param courseId id of the course
      */
-
     public void modifyCourseTeacher(String teacherId, String courseId) {
 
     }
@@ -117,7 +114,6 @@ public class SchoolManagementSystem {
     /**
      * Prints all teachers in a school that are not null
      */
-
     public void printTeachers() {
 
     }
@@ -128,7 +124,6 @@ public class SchoolManagementSystem {
      * @param lname last name of the student
      * @param departmentId id of the department
      */
-
     public void addStudent(String fname, String lname, String departmentId) {
 
     }
@@ -138,7 +133,6 @@ public class SchoolManagementSystem {
      * @param studentId the id of the student that needs to be found
      * @return the found student
      */
-
     public Student findStudent(String studentId) {
         return null;
     }
@@ -146,7 +140,6 @@ public class SchoolManagementSystem {
     /**
      * Prints all students in a school that are not null
      */
-
     public void printStudents() {
 
     }
