@@ -41,7 +41,7 @@ public class Course {
 
         for (Student student : students) {
             if (student != null) {
-                studentStr += student + ", ";
+                studentStr += student.getFname() + " " + student.getLname() + ", ";
             }
         }
         studentStr += "]";

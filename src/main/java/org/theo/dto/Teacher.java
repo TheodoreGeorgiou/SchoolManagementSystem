@@ -25,8 +25,8 @@ public class Teacher {
     }
 
     /**
-     * Prints the information of a student
-     * @return the information of a student
+     * Prints the information of a teacher
+     * @return the information of a teacher
      */
     @Override
     public String toString() {

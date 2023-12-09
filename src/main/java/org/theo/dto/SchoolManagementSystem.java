@@ -125,7 +125,40 @@ public class SchoolManagementSystem {
      * @param courseId id of the course
      */
     public void registerCourse(String studentId, String courseId) {
+        if (findCourse(courseId) == null) {
+            System.out.printf("Cannot find any course match with courseId %s, register course for student %s failed.\n"
+                    , courseId, studentId);
+        } else if (findStudent(studentId) == null) {
+            System.out.printf("Cannot find any student match with studentId %s, register course for student %s" +
+                    "failed.\n",studentId, studentId);
+        } else if (findStudent(studentId).getCourseNum() == 5) {
+            System.out.printf("Student %s has already registered for 5 courses, register course for student %s" +
+                    " failed.\n", studentId, studentId);
+        } else if (findCourse(courseId).getStudentNum() == 5) {
+            System.out.printf("Course %s has been fully registered, register course %s for student %s failed."
+                    , courseId, courseId, studentId);
+        } else {
+            for (int i = 0; i < findCourse(courseId).getStudents().length; i++) {
+                if (findCourse(courseId).getStudents()[i] == null) {
+                    findCourse(courseId).getStudents()[i] = findStudent(studentId);
+                    break;
+                }
+            }
 
+            for (int i = 0; i < findStudent(studentId).getCourses().length; i++) {
+                if (findStudent(studentId).getCourses()[i] == null) {
+                    findStudent(studentId).getCourses()[i] = findCourse(courseId);
+                    break;
+                }
+            }
+
+            findCourse(courseId).setStudentNum(findCourse(courseId).getStudentNum() + 1);
+            findStudent(studentId).setCourseNum(findStudent(studentId).getCourseNum() + 1);
+
+            System.out.println("Student registered to course successfully");
+            System.out.println("Latest student info:" + " " + findStudent(studentId));
+            System.out.println("Latest course info:" + " " + findCourse(courseId));
+        }
     }
 
     /**

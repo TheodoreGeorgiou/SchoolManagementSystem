@@ -39,7 +39,7 @@ public class Student {
 
         for (Course course : courses) {
             if (course != null) {
-                courseStr += course + ", ";
+                courseStr += course.getCourseName() + ", ";
             }
         }
         courseStr += "]";
