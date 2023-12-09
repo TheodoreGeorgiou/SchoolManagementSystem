@@ -30,11 +30,13 @@ public class Teacher {
      */
     @Override
     public String toString() {
-        if (department == null) {
-            return "Teacher{" + "id='" + id + "'" + ", fname='" + fname + "'" + ", lname='" + lname + "'" +
-                    ", department='" + null + "'" + '}';
+        String departmentName = null;
+
+        if (department != null) {
+            departmentName = department.getDepartmentName();
         }
+
         return "Teacher{" + "id='" + id + "'" + ", fname='" + fname + "'" + ", lname='" + lname + "'" +
-                ", department='" + department.getDepartmentName() + "'" + '}';
+                ", department='" + departmentName + "'" + '}';
     }
 }

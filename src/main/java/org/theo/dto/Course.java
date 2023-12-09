@@ -36,6 +36,8 @@ public class Course {
     @Override
     public String toString() {
         String studentStr = "[";
+        String departmentName = null;
+        String teacherName = null;
 
         for (Student student : students) {
             if (student != null) {
@@ -44,13 +46,16 @@ public class Course {
         }
         studentStr += "]";
 
-        if (department == null) {
-            return "Course{" + "id='" + id + "'" + ", courseName='" + courseName + "'" + ", credit='" + credit + "'" +
-                    ", department=" +  null + "'" + ", teacher=" + teacher +
-                    ", students=" + studentStr + ", studentNum='" + studentNum + "'" + '}';
+        if (department != null) {
+            departmentName = department.getDepartmentName();
         }
+
+        if (teacher != null) {
+            teacherName = teacher.getFname() + " " + teacher.getLname();
+        }
+
         return "Course{" + "id='" + id + "'" + ", courseName='" + courseName + "'" + ", credit='" + credit + "'" +
-                ", department=" +  department.getDepartmentName() + "'" + ", teacher=" + teacher +
+                ", department='" +  departmentName + "'" + ", teacher='" + teacherName + "'" +
                 ", students=" + studentStr + ", studentNum='" + studentNum + "'" + '}';
     }
 }

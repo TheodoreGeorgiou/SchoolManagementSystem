@@ -188,7 +188,16 @@ public class SchoolManagementSystem {
      * @param courseId id of the course
      */
     public void modifyCourseTeacher(String teacherId, String courseId) {
-
+        if (findCourse(courseId) == null) {
+            System.out.printf("Cannot find any course match with courseId %s, modifying teacher for course %s failed.\n"
+                    ,courseId, courseId);
+        } else if (findTeacher(teacherId) == null) {
+            System.out.printf("Cannot find any teacher match with teacher %s, modifying teacher for course %s failed.\n"
+                    ,teacherId, courseId);
+        } else {
+            findCourse(courseId).setTeacher(findTeacher(teacherId));
+            System.out.println(findCourse(courseId) + " teacher info updated successfully.");
+        }
     }
 
     /**
