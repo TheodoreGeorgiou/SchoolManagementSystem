@@ -125,6 +125,13 @@ public class SchoolManagementSystem {
      * @param courseId id of the course
      */
     public void registerCourse(String studentId, String courseId) {
+        boolean alreadyRegistered = false;  //used for bonus
+        for (int i = 0; i < findCourse(courseId).getStudents().length; i++) {
+            if (findCourse(courseId).getStudents()[i] == findStudent(studentId)) {
+                alreadyRegistered = true;
+            }
+        }
+
         if (findCourse(courseId) == null) {
             System.out.printf("Cannot find any course match with courseId %s, register course for student %s failed.\n"
                     , courseId, studentId);
@@ -137,6 +144,9 @@ public class SchoolManagementSystem {
         } else if (findCourse(courseId).getStudentNum() == 5) {
             System.out.printf("Course %s has been fully registered, register course %s for student %s failed."
                     , courseId, courseId, studentId);
+        } else if (alreadyRegistered) { //bonus
+            System.out.printf("Student %s has already registered to course %s, register course %s for student" +
+                    " %s failed.\n", studentId, courseId, courseId, studentId);
         } else {
             for (int i = 0; i < findCourse(courseId).getStudents().length; i++) {
                 if (findCourse(courseId).getStudents()[i] == null) {

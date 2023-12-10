@@ -29,6 +29,7 @@ public class Main {
         school.registerCourse("S001", "C002");
         school.registerCourse("S002", "C001");
         school.registerCourse("S002", "C002");
+        school.registerCourse("S001", "C001");
 
         System.out.println("\nAll departments:");
         school.printDepartments();
